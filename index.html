@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Heet Mehta</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Heet Mehta — graduate student in Quantitative Finance at Fordham Gabelli. Quantitative research, pricing models and data pipelines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column with a left date rail, like a trade blotter — dates in mono on the left, the work on the right */
+:root{
+  --bg:#f5f6f4; --surface:#ffffff; --fg:#14181c; --muted:#5b6670; --line:#dde1dd;
+  --accent:#0f5a63; --accent-soft:#e1eeee; --up:#1f7a4a; --gold:#9a6b12; --gold-soft:#f6eedb;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#101416; --surface:#161c1f; --fg:#e7ecec; --muted:#93a0a6; --line:#263034;
+  --accent:#5fc0c8; --accent-soft:#16292c; --up:#5cc58e; --gold:#e0b25a; --gold-soft:#2a2316; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101416; --surface:#161c1f; --fg:#e7ecec; --muted:#93a0a6; --line:#263034;
+  --accent:#5fc0c8; --accent-soft:#16292c; --up:#5cc58e; --gold:#e0b25a; --gold-soft:#2a2316; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0}
+img{max-width:100%}
+body{background:var(--bg); color:var(--fg); font:16px/1.6 var(--body); -webkit-font-smoothing:antialiased}
+a{color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible, summary:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+
+.wrap{max-width:920px; margin:0 auto; padding-left:max(20px, env(safe-area-inset-left,0px)); padding-right:max(20px, env(safe-area-inset-right,0px))}
+
+.bar{border-bottom:1px solid var(--line); background:var(--bg)}
+.bar .wrap{display:flex; justify-content:space-between; align-items:center; gap:12px 20px; flex-wrap:wrap; padding-block:14px}
+.mark{font:500 13px/1 var(--mono); letter-spacing:.04em; color:var(--fg); text-decoration:none}
+.bar nav{display:flex; gap:6px 18px; flex-wrap:wrap}
+.bar nav a{font:500 12px/1.6 var(--mono); color:var(--muted); text-decoration:none; letter-spacing:.04em}
+.bar nav a:hover{color:var(--accent)}
+
+.hero{padding-block:64px 36px}
+.hero-top{display:flex; gap:28px; align-items:center; flex-wrap:wrap}
+.photo{width:120px; height:120px; border-radius:50%; object-fit:cover; border:1px solid var(--line); flex:none}
+.eyebrow{font:500 12px/1 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--accent)}
+h1{font:700 clamp(44px, 9vw, 84px)/0.98 var(--display); letter-spacing:-.025em; margin:14px 0 0; text-wrap:balance}
+.lede{font-size:clamp(18px,2.4vw,21px); line-height:1.5; max-width:36em; margin:26px 0 0}
+.lede span{color:var(--muted)}
+.tape{display:block; width:100%; height:72px; margin-top:36px}
+.facts{display:flex; flex-wrap:wrap; gap:10px 28px; margin-top:18px; font:400 13px/1.4 var(--mono); color:var(--muted)}
+.facts b{font-weight:500; color:var(--fg)}
+.links{display:flex; flex-wrap:wrap; gap:12px; margin-top:30px}
+.btn{display:inline-flex; align-items:center; gap:8px; font:500 14px/1 var(--body); padding:12px 18px; border-radius:6px; text-decoration:none; border:1px solid var(--line); color:var(--fg); background:var(--surface)}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:var(--bg)}
+.btn:hover{border-color:var(--accent)}
+
+section{padding-block:56px; border-top:1px solid var(--line)}
+h2{font:700 13px/1 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0 0 30px}
+h2 small{font-weight:400; letter-spacing:.04em; text-transform:none; margin-left:10px}
+.about p{max-width:65ch; margin:0 0 14px; font-size:17px}
+
+.row, .ach{display:grid; grid-template-columns:170px minmax(0,1fr); gap:6px 32px; padding-block:22px}
+.row + .row, .ach + .ach{border-top:1px dashed var(--line)}
+.when{font:400 13px/1.7 var(--mono); color:var(--muted); font-variant-numeric:tabular-nums; padding-top:3px}
+.when .now{display:inline-block; margin-top:6px; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--up)}
+.when .now::before{content:"● "}
+.what{min-width:0}
+h3{font:700 21px/1.25 var(--display); letter-spacing:-.01em; margin:0; text-wrap:balance}
+.org{color:var(--muted); margin:4px 0 10px; font-size:15px}
+.tagline{margin:-4px 0 10px; font-style:italic; color:var(--muted); font-size:14.5px}
+.sum, .what details p{margin:0; max-width:64ch}
+ul{margin:0; padding-left:1.1em}
+li{margin:4px 0; max-width:64ch}
+li::marker{color:var(--accent)}
+details{margin-top:8px}
+details p{color:var(--fg)}
+summary{cursor:pointer; font:500 13px/1.6 var(--mono); color:var(--accent); width:max-content; list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:" +"}
+details[open] summary::after{content:" −"}
+details[open] summary{margin-bottom:6px}
+details[open] + .x{display:none}
+
+.group{font:500 12px/1 var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--fg); margin:0 0 14px}
+.group + .projects{margin-bottom:40px}
+.projects{display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:14px}
+.proj{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:20px; display:flex; flex-direction:column; gap:10px; min-width:0}
+.proj h3{font-size:18px}
+.proj p{margin:0; color:var(--muted); font-size:14.5px}
+.tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; padding-top:4px}
+.tag{font:400 12px/1 var(--mono); padding:5px 8px; border-radius:4px; background:var(--accent-soft); color:var(--accent)}
+.gh{font:500 13px/1 var(--mono); text-decoration:none}
+
+.skills{display:grid; grid-template-columns:200px minmax(0,1fr); gap:16px 32px; margin:0}
+.skills dt{font:500 13px/1.7 var(--mono); color:var(--muted)}
+.skills dd{margin:0; max-width:64ch}
+
+.ach.gold h3::after{content:"Gold Medal"; display:inline-block; vertical-align:middle; margin-left:10px; font:500 11px/1 var(--mono); letter-spacing:.06em; text-transform:uppercase; padding:5px 7px; border-radius:4px; background:var(--gold-soft); color:var(--gold)}
+.ach a{font:500 13px/1 var(--mono); text-decoration:none}
+
+.cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:14px}
+.card{border:1px solid var(--line); border-radius:8px; padding:20px; background:var(--surface); min-width:0}
+.card h3{font-size:18px; margin-bottom:6px}
+.card p{margin:0 0 12px; color:var(--muted); font-size:14.5px}
+.card .val{font:500 14px/1.4 var(--mono); word-break:break-all}
+footer{border-top:1px solid var(--line); padding-block:28px}
+footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font:400 12px/1.5 var(--mono); color:var(--muted)}
+footer a{color:var(--muted)}
+
+@media (max-width:640px){
+  .hero{padding-block:44px 28px}
+  .row,.ach,.skills{grid-template-columns:1fr; gap:4px}
+  .when{padding-top:0}
+  .photo{width:88px; height:88px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important; scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">HEET MEHTA</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="hero-top">
+      <img class="photo" src="profile.jpg" alt="Heet Mehta" onerror="this.remove()">
+      <div>
+        <div class="eyebrow">Quantitative Finance · New York</div>
+        <h1>Heet Mehta</h1>
+      </div>
+    </div>
+    <p class="lede">Graduate student in Quantitative Finance at Fordham University, Gabelli School of Business. <span>Currently a Quantitative Research Intern at SpeedLabs, pricing live in-game sports markets.</span></p>
+    <canvas class="tape" id="tape" aria-hidden="true"></canvas>
+    <div class="facts">
+      <span><b>MS QF</b> Fordham Gabelli, May 2027</span>
+      <span><b>Open to</b> Jan–May 2027 internships · full-time roles</span>
+      <span><b>Based in</b> New York · open to relocate</span>
+    </div>
+    <div class="links">
+      <a class="btn primary" href="Heet_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
+      <a class="btn" href="#contact">Contact Info</a>
+      <a class="btn" href="https://www.linkedin.com/in/heetnirajmehta/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/Heetm77" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <h2>About Me</h2>
+      <p>I am a graduate student in Quantitative Finance with a strong foundation in computer science and a deep interest in risk management, fixed income, and portfolio management. My academic and project experience spans quantitative modeling, derivatives, and financial programming, where I have applied tools such as Python and Bloomberg Terminal.</p><p>I am motivated by the intersection of technology and finance. Alongside my academic pursuits, I value collaboration, clear communication, and continuous learning. I am eager to apply my quantitative skills, analytical mindset, and curiosity in a research driven, collaborative environment.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <div class="row"><div class="when">Jul 2026 to Present<br><span class="now">Current</span></div><div class="what"><h3>Quantitative Research Intern</h3><p class="org">SpeedLabs, New York, NY</p><p class="tagline">Real-time market engine for sports, pioneering Momentum Markets.</p><ul><li>Traced a game event across four Python microservices; root-caused an alerting job that had never fired, isolating four defects including a mis-quoted SQL identifier that silently routed 19,000 log rows to a shadow table, then fixed the internal pattern document that prescribed it.</li><li>Built the platform&#x27;s question-quality measurement system, which now runs after every live game and re-grades each settled question from raw play data instead of reusing the settlement code, so it cannot inherit the same bugs.</li><li>Disproved a suspected correlation across 202 question pairs and 17 games that leadership was scoping a live safeguard around; traced the real cause to a pricing bias making a 20-question winning streak 110x more likely than a coin-flip model implies, redirecting the fix to pricing.</li></ul></div></div><div class="row"><div class="when">May 2026 to Jun 2026</div><div class="what"><h3>Quantitative AI Architect Intern</h3><p class="org">Deep Market Making Inc., New York, NY</p><p class="tagline">AI startup building the world&#x27;s first Large Event Model for credit market pricing.</p><ul><li>Co-developed a macro conditional pricing pipeline to forecast corporate bond shifts across 1-day, 1-week, and 1-month horizons to help revalue illiquid assets.</li><li>Built a robust data ingestion engine for core macro factors (SOFR, ICE BofA spreads, VIX, S&amp;P 500) using localized fallbacks to bypass corporate proxy firewall blocks.</li><li>Isolated absolute factor levels from conditioning deltas, applying log returns for equities and point changes for volatility to keep features consistent across market regimes.</li></ul></div></div><div class="row"><div class="when">2025 to Present<br><span class="now">Current</span></div><div class="what"><h3>Graduate Research Assistant</h3><p class="org">Fordham University, Gabelli School of Business, New York, NY</p><p class="tagline">Data collection, engineering and statistical modeling for faculty research.</p><ul><li>Built a Python pipeline for 87 million business records; advanced data collection and engineering.</li><li>Data analysis for the &#x27;fear of appearing incompetent&#x27; construct; statistical analysis and predictive modeling.</li></ul></div></div><div class="row"><div class="when">May 2024 to Jun 2024</div><div class="what"><h3>Portfolio Management Intern</h3><p class="org">Shagun Wealth, Ahmedabad, Gujarat, India</p><p class="sum">Assisted in managing high net worth client portfolios totaling $500M AUM by conducting NAV trend analysis and portfolio beta assessment.</p><details><summary>Read more</summary><p>As a Portfolio Management Intern at Shagun Wealth, I assisted in managing high net worth client portfolios totaling $500M AUM by conducting NAV trend analysis and portfolio beta assessment. I supported client onboarding through trading account setup and investment recommendations, executed purchases and redemptions across various mutual fund schemes, and used NSE/BSE trading terminals to monitor real time market movements.</p></details></div></div><div class="row"><div class="when">Jan 2024 to Apr 2024</div><div class="what"><h3>Project Intern, Software Development</h3><p class="org">Silver Touch Technologies Ltd, Ahmedabad, Gujarat, India</p><p class="sum">Led the development of a front end flight booking system using Flutter, Dart, HTML, and CSS, improving load speed by 30% and reducing booking effort by 40%.</p><details><summary>Read more</summary><p>At Silver Touch Technologies Ltd, I led the development of a front end flight booking system using Flutter, Dart, HTML, and CSS. I collaborated with a team of four and coordinated tasks to ensure on time project delivery. I enhanced system performance by improving load speed by 30% and reducing booking effort by 40%, implementing core features including user authentication, flight search and filters, and seat selection.</p></details></div></div><div class="row"><div class="when">May 2023 to Jul 2023</div><div class="what"><h3>Intern, Python Development</h3><p class="org">Silver Touch Technologies Ltd, Ahmedabad, Gujarat, India</p><p class="sum">Developed finance domain application using Python and PostgreSQL, contributing to internal tools that reduced reporting time for the finance team by 25%.</p><details><summary>Read more</summary><p>During my Python Development internship at Silver Touch Technologies Ltd, I developed finance domain application using Python and PostgreSQL, contributing to internal tools that reduced reporting time for the finance team by 25%. I cleaned and standardized large datasets to improve data reliability and supported testing and deployment of production modules, ensuring alignment with business logic and performance standards.</p></details></div></div><div class="row"><div class="when">Jun 2022 to Jun 2022</div><div class="what"><h3>Intern, Web Development</h3><p class="org">Silver Touch Technologies Ltd, Ahmedabad, Gujarat, India</p><p class="sum">Completed a web development internship focused on UI design and static website implementation, ensuring cross browser compatibility and mobile responsiveness.</p><details><summary>Read more</summary><p>At Silver Touch Technologies Ltd, I completed a web development internship focused on UI design and static website implementation. I designed and coded responsive layouts using HTML and CSS, ensuring cross browser compatibility and mobile responsiveness. I built multiple user interface prototypes for client facing applications, collaborated with senior developers to translate wireframes into clean front end code, and assisted in basic database integration planning for dynamic pages.</p></details></div></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects <small>Across AI, web, and finance</small></h2>
+      <p class="group">Quantitative finance</p>
+      <div class="projects"><article class="proj"><h3>Derivatives Pricing</h3><p>Portfolio grade quant project for derivatives pricing and risk modeling from first principles. Black Scholes analytical pricing and closed form Greeks, Monte Carlo (GBM) with control variates for variance reduction, numerical Greeks via finite differences, and American put pricing with Longstaff Schwartz LSM including early exercise boundary visualization and path split overfitting diagnostics. Benchmarked against binomial trees.</p><div class="tags"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">SciPy</span><span class="tag">Black Scholes</span><span class="tag">Monte Carlo</span><span class="tag">Longstaff Schwartz</span></div><a class="gh" href="https://github.com/Heetm77/Derivatives_Pricing" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>Market Risk Analysis for a Fixed Income Portfolio</h3><p>Monte Carlo VaR and Expected Shortfall (CVaR) model for a $5M investment-grade corporate bond portfolio (JPMorgan, Mastercard, Ford, Broadcom, Wells Fargo). Pulls Treasury yields from the FRED API to compute G-Spread and Z-Spread, runs 10,000 GBM paths for 1-day and 10-day VaR at 95%, 97% and 99%, and stress tests rate shocks (parallel, steepening, flattening) and 75 to 150 bp credit spread widening.</p><div class="tags"><span class="tag">Python</span><span class="tag">Monte Carlo</span><span class="tag">VaR</span><span class="tag">CVaR</span><span class="tag">Stress Testing</span><span class="tag">FRED API</span></div><a class="gh" href="https://github.com/Heetm77/market-risk-analysis" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>Implied Volatility Surface and Arbitrage Detection</h3><p>Real-time implied volatility surface built from live option chains, solving Black-Scholes implied vols with Brent&#x27;s method and interpolating a 3D surface across strike and maturity. Detects butterfly arbitrage by testing convexity across strikes, in an interactive Streamlit dashboard with ticker and expiry filters and live U.S. Treasury risk-free rates.</p><div class="tags"><span class="tag">Python</span><span class="tag">Black Scholes</span><span class="tag">SciPy</span><span class="tag">Plotly</span><span class="tag">Streamlit</span></div></article><article class="proj"><h3>MBS Pricing Model</h3><p>Pricing and valuation model for Freddie Mac Gold Pool mortgage-backed securities.</p><div class="tags"><span class="tag">Python</span><span class="tag">Fixed Income</span><span class="tag">MBS</span></div></article><article class="proj"><h3>Credit Risk Expected Loss</h3><p>Expected-loss model on Lending Club loans, estimating probability of default (PD), loss given default (LGD) and exposure at default (EAD).</p><div class="tags"><span class="tag">Python</span><span class="tag">PD</span><span class="tag">LGD</span><span class="tag">EAD</span><span class="tag">Credit Risk</span></div></article><article class="proj"><h3>SPY LSTM Trend Prediction</h3><p>Compared five deep-learning architectures (LSTM 1, 2 and 5-layer, GRU, CNN-LSTM) for next-day S&amp;P 500 direction on 14 years of daily SPY data (2010 to 2024), using up to 33 features including technical indicators, VIX and sector ETF strength. Best ROC-AUC was 0.532, consistent with the Efficient Market Hypothesis, and the backtested strategy cut max drawdown to -13.6% versus -19.0% for buy and hold.</p><div class="tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">LSTM</span><span class="tag">GRU</span><span class="tag">Backtesting</span></div><a class="gh" href="https://github.com/Heetm77/spy-lstm-trend-prediction" target="_blank" rel="noopener">View on GitHub ↗</a></article></div>
+      <p class="group">Software &amp; automation</p>
+      <div class="projects"><article class="proj"><h3>Invoice Generation App</h3><p>An application that creates PDF invoices from Excel files. Automates invoice generation process with support for custom headers, company logos, and pricing calculations. Streamlines billing workflow by converting spreadsheet data into professional PDF invoices.</p><div class="tags"><span class="tag">Python</span></div><a class="gh" href="https://github.com/Heetm77/Invoice_Generation" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>News API Email</h3><p>Fetches the latest news for a chosen topic via NewsAPI and prepares the results for email delivery. Currently prints article titles and descriptions to stdout, easily extendable to send via SMTP or email providers.</p><div class="tags"><span class="tag">Python</span><span class="tag">Requests</span></div><a class="gh" href="https://github.com/Heetm77/News_Api_Email" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>Weather Data API</h3><p>Flask API serving historical temperature data from local datasets. Provides endpoints for single date temperatures, full station data, and yearly subsets without external API calls at runtime.</p><div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Pandas</span></div><a class="gh" href="https://github.com/Heetm77/Your_Weather_Api" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>Weather Forecast Dashboard</h3><p>Interactive Streamlit app that visualizes OpenWeatherMap 5 day forecasts. Users pick a city and days ahead to view temperature trends or sky conditions with Plotly charts and weather icons.</p><div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Plotly</span><span class="tag">Requests</span><span class="tag">OpenWeatherMap</span></div><a class="gh" href="https://github.com/Heetm77/Weather_Data_Forecast_App" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>Student Management System (PyQt6 + MySQL)</h3><p>Desktop app to create, view, update, search, and delete student records. PyQt6 GUI backed by MySQL with dialogs for add/edit/delete, search by name, and a table view of all students.</p><div class="tags"><span class="tag">Python</span><span class="tag">PyQt6</span><span class="tag">MySQL</span><span class="tag">PyMySQL</span></div><a class="gh" href="https://github.com/Heetm77/Student_Management_System_With_mysql" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>Super Mario Python</h3><p>Super Mario Implementation in Python. This is inspired by Meth-Meth-Method&#x27;s super mario game. A classic game implementation using pygame with full game mechanics including player movement, enemies, and level design.</p><div class="tags"><span class="tag">Python</span><span class="tag">pygame</span><span class="tag">scipy</span></div><a class="gh" href="https://github.com/Heetm77/Super_Mario" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>Browser Automation with Selenium</h3><p>Python application that automates web browser interactions using Selenium WebDriver. Demonstrates automated login, form filling, and file downloading with both command-line and GUI interfaces built with Tkinter.</p><div class="tags"><span class="tag">Python</span><span class="tag">Selenium</span><span class="tag">Tkinter</span><span class="tag">ChromeDriver</span></div><a class="gh" href="https://github.com/Heetm77/Browser_Automation_Selenium" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>Flask Job Application Form</h3><p>Flask web application with an interactive job application form. Stores submissions in SQLite database using SQLAlchemy and sends confirmation emails to applicants using Flask Mail with Bootstrap styled UI.</p><div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLAlchemy</span><span class="tag">Flask-Mail</span><span class="tag">SQLite</span><span class="tag">Bootstrap</span></div><a class="gh" href="https://github.com/Heetm77/Flask_Form" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>Hotel Booking System</h3><p>Command line hotel booking system with credit card validation and reservation ticket generation. Features OOP design with support for spa packages, secure credit card authentication, and CSV based data storage.</p><div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">CSV</span></div><a class="gh" href="https://github.com/Heetm77/Hotel_Booking" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>PDF Template Generator</h3><p>Python application that generates PDF templates with ruled lines for note taking from CSV files. Creates customizable PDFs with topic headers, footers, and automatic page management for each topic section.</p><div class="tags"><span class="tag">Python</span><span class="tag">FPDF</span><span class="tag">Pandas</span></div><a class="gh" href="https://github.com/Heetm77/Pdf_Template" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>Tour Events Web Scraper</h3><p>Web scraping application that monitors websites for upcoming tour events, stores them in SQLite database, and sends email notifications when new events are discovered. Uses YAML based selectors for flexible data extraction.</p><div class="tags"><span class="tag">Python</span><span class="tag">Requests</span><span class="tag">SQLite</span><span class="tag">SelectorLib</span><span class="tag">YAML</span></div><a class="gh" href="https://github.com/Heetm77/Scraping_Tours_sql" target="_blank" rel="noopener">View on GitHub ↗</a></article><article class="proj"><h3>Student Management System (PyQt6 + SQLite)</h3><p>Desktop application for managing student records with PyQt6 GUI. Features create, view, update, search, and delete operations with SQLite database backend. Includes menu bar, dialogs, and table view interface.</p><div class="tags"><span class="tag">Python</span><span class="tag">PyQt6</span><span class="tag">SQLite</span></div><a class="gh" href="https://github.com/Heetm77/Student_Management_System" target="_blank" rel="noopener">View on GitHub ↗</a></article></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2>Education</h2>
+      <div class="row"><div class="when">August 2025 to May 2027</div><div class="what"><h3>MS, Quantitative Finance (STEM), Dean&#x27;s Scholarship Recipient</h3><p class="org">Fordham University, Gabelli School of Business · New York, NY</p><ul><li>Relevant Coursework: Derivatives, Financial Markets and Modeling, Financial Programming, Machine Learning and Econometrics, Probability and Statistics, Math for Quantitative Finance, Introduction to Stochastic Calculus</li><li>Member of the Quantitative Finance Society, Investments Club, and Capital Markets Club</li></ul></div></div><div class="row"><div class="when">July 2024 to May 2025</div><div class="what"><h3>Post Graduate Diploma, Financial Management, Gold Medalist</h3><p class="org">California State University, San Bernardino &amp; Ahmedabad Management Association (Joint Degree) · Ahmedabad, Gujarat, India</p><ul><li>Relevant Coursework: Risk Management, Capital Budgeting, Mergers and Acquisitions (M&amp;A), Financial Statement Analysis, Personal Finance, Foreign Exchange</li></ul></div></div><div class="row"><div class="when">September 2020 to April 2024</div><div class="what"><h3>Bachelors, Computer Science and Engineering, GPA 3.57/4.00</h3><p class="org">Indus Institute of Technology and Engineering · Ahmedabad, Gujarat, India</p><ul><li>Relevant Coursework: Linear Algebra, Calculus, Differential Equations, Data Science</li><li>President of the Sports Committee; organized inter-college soccer tournament with 12+ universities across the city</li></ul></div></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <dl class="skills"><dt>Programming</dt><dd>Python, C++, R</dd><dt>Quantitative Finance</dt><dd>Derivatives Pricing (Black Scholes, Monte Carlo), Implied Volatility &amp; Volatility Surface Modeling, Yield Curve Modeling (Nelson Siegel, Nelson Siegel Svensson), Portfolio Risk Metrics (Beta, VaR, Expected Shortfall), Backtesting and Model Validation (Kupiec Test), Time Series Analysis</dd><dt>Markets &amp; Credit</dt><dd>Sports and prediction market pricing, Corporate Bond and Credit Pricing, MBS Valuation, Credit Risk Modeling (PD, LGD, EAD)</dd><dt>Statistics &amp; Machine Learning</dt><dd>Probability and Statistics, Stochastic Calculus, Regression, Classification, Clustering, Decision Trees, Feature Engineering, Model Training and Evaluation, Scikit-Learn, LSTM Neural Networks</dd><dt>Data Analysis &amp; Visualization</dt><dd>Pandas, NumPy, Matplotlib, Excel, Large-scale Data Pipelines</dd><dt>Financial &amp; Market Data</dt><dd>Options Chains, Equity &amp; Fixed Income Data, Real Time Market Data Analysis, Live Play-by-Play Data, Bloomberg Terminal</dd><dt>Software Engineering &amp; Systems</dt><dd>Data Structures &amp; Algorithms, Object Oriented Programming, Logging and Monitoring</dd><dt>Tools and Platforms</dt><dd>Git, GitHub, Streamlit</dd></dl>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="wrap">
+      <h2>Achievements</h2>
+      <div class="ach gold"><div class="when">May 31, 2025 (Batch: July-December 2024)</div><div class="what"><h3>Gold Medal Winner</h3><p class="org">Post Graduate Diploma in Financial Management - Convocation Ceremony · Ahmedabad Management Association (AMA) &amp; California State University, San Bernardino</p><a href="certificates/gold-medal-ama.jpg" target="_blank" rel="noopener">View certificate ↗</a></div></div><div class="ach"><div class="when">May 2025</div><div class="what"><h3>Microeconomics: The Power of Markets</h3><p class="org">Course Certificate · University of Pennsylvania, Coursera</p><a href="certificates/penn-microeconomics.png" target="_blank" rel="noopener">View certificate ↗</a></div></div><div class="ach"><div class="when">May 2025</div><div class="what"><h3>Introduction to Financial Accounting</h3><p class="org">Course Certificate · University of Pennsylvania (Wharton), Coursera</p><a href="certificates/wharton-financial-accounting.png" target="_blank" rel="noopener">View certificate ↗</a></div></div><div class="ach"><div class="when">February 2024</div><div class="what"><h3>Investment Banking: Financial Analysis and Valuation</h3><p class="org">Course Certificate · University of Illinois Urbana-Champaign, Coursera</p><a href="certificates/illinois-investment-banking.png" target="_blank" rel="noopener">View certificate ↗</a></div></div><div class="ach"><div class="when">September 2023</div><div class="what"><h3>AWS Academy Graduate - Cloud Foundations</h3><p class="org">Training Badge, 20 hours completed · AWS Academy</p><a href="certificates/aws-cloud-foundations.png" target="_blank" rel="noopener">View certificate ↗</a></div></div><div class="ach"><div class="when">October 2021</div><div class="what"><h3>The Python Mega Course: Build 10 Real World Applications</h3><p class="org">Course Certificate · Udemy, Instructor: Ardit Sulce</p><a href="certificates/udemy-python-mega-course.jpg" target="_blank" rel="noopener">View certificate ↗</a></div></div><div class="ach"><div class="when">August 2021</div><div class="what"><h3>Soft Skills: The 11 Essential Career Soft Skills</h3><p class="org">Course Certificate · Udemy, Instructor: TJ Walker</p><a href="certificates/udemy-soft-skills.jpg" target="_blank" rel="noopener">View certificate ↗</a></div></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p class="about" style="max-width:60ch;margin:0 0 24px;font-size:17px">Whether it's a project idea, collaboration, or just a question about something I've built, I'm happy to connect.</p>
+      <div class="cards">
+        <div class="card"><h3>Email</h3><p>Best way to reach me directly.</p><a class="val" href="mailto:hnm1@fordham.edu">hnm1@fordham.edu</a></div>
+        <div class="card"><h3>Coffee Chat</h3><p>Open to virtual coffee chats about tech, AI, or careers.</p><a class="val" href="https://www.linkedin.com/in/heetnirajmehta/" target="_blank" rel="noopener">Message me on LinkedIn ↗</a></div>
+        <div class="card"><h3>Collaborations</h3><p>I'm always interested in meaningful projects and ideas.</p><a class="val" href="https://github.com/Heetm77" target="_blank" rel="noopener">Let's collaborate ↗</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Heet Mehta. All rights reserved.</span><span><a href="https://github.com/Heetm77" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/heetnirajmehta/" target="_blank" rel="noopener">LinkedIn</a></span></div>
+</footer>
+
+<script>
+// Decorative price tape: a seeded random walk, redrawn on resize and theme change.
+(function(){
+  const c = document.getElementById('tape'); if(!c) return;
+  function draw(){
+    const dpr = window.devicePixelRatio || 1, w = c.clientWidth, h = c.clientHeight;
+    if(!w) return;
+    c.width = w*dpr; c.height = h*dpr;
+    const x = c.getContext('2d'); x.scale(dpr,dpr);
+    const cs = getComputedStyle(document.documentElement);
+    const acc = cs.getPropertyValue('--accent').trim(), line = cs.getPropertyValue('--line').trim();
+    let s = 77; const rnd = () => (s = (s*16807) % 2147483647) / 2147483647;
+    const n = Math.max(40, Math.floor(w/6)), pts = []; let v = 0;
+    for(let i=0;i<n;i++){ v += (rnd()-0.47)*1.2; pts.push(v); }
+    const mn = Math.min(...pts), mx = Math.max(...pts), pad = 8;
+    const Y = p => h-pad - (p-mn)/(mx-mn||1)*(h-2*pad), X = i => i/(n-1)*(w-6);
+    x.strokeStyle = line; x.lineWidth = 1; x.setLineDash([2,4]);
+    x.beginPath(); x.moveTo(0, Y(pts[0])); x.lineTo(w, Y(pts[0])); x.stroke(); x.setLineDash([]);
+    x.strokeStyle = acc; x.lineWidth = 1.5; x.beginPath();
+    pts.forEach((p,i)=> i ? x.lineTo(X(i),Y(p)) : x.moveTo(X(i),Y(p))); x.stroke();
+    x.fillStyle = acc; x.beginPath(); x.arc(X(n-1), Y(pts[n-1]), 3.5, 0, Math.PI*2); x.fill();
+  }
+  draw(); addEventListener('resize', draw);
+  const mq = matchMedia('(prefers-color-scheme: dark)'); if(mq.addEventListener) mq.addEventListener('change', draw);
+  new MutationObserver(draw).observe(document.documentElement, {attributes:true, attributeFilter:['data-theme']});
+})();
+</script>
+
+</body>
+</html>
