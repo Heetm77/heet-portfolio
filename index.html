@@ -47,7 +47,7 @@ a:focus-visible, summary:focus-visible{outline:2px solid var(--accent); outline-
 .hero-top{display:flex; gap:28px; align-items:center; flex-wrap:wrap}
 .photo{width:120px; height:120px; border-radius:50%; object-fit:cover; border:1px solid var(--line); flex:none}
 .eyebrow{font:500 12px/1 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--accent)}
-h1{font:700 clamp(44px, 9vw, 84px)/0.98 var(--display); letter-spacing:-.025em; margin:14px 0 0; text-wrap:balance}
+h1{font:700 clamp(44px, 9vw, 84px)/0.98 var(--display); letter-spacing:-.025em; margin:0; text-wrap:balance}
 .lede{font-size:clamp(18px,2.4vw,21px); line-height:1.5; max-width:36em; margin:26px 0 0}
 .lede span{color:var(--muted)}
 .tape{display:block; width:100%; height:72px; margin-top:36px}
@@ -145,10 +145,7 @@ footer .wrap > span:last-child{display:flex; gap:18px}
   <div class="wrap hero">
     <div class="hero-top">
       <img class="photo" src="profile.jpg" alt="Heet Mehta" onerror="this.remove()">
-      <div>
-        <div class="eyebrow">Quantitative Finance, New York</div>
-        <h1>Heet Mehta</h1>
-      </div>
+      <h1>Heet Mehta</h1>
     </div>
     <p class="lede">Graduate student in Quantitative Finance at Fordham University, Gabelli School of Business. <span>Currently a Quantitative Research Intern at SpeedLabs, pricing live in-game sports markets.</span></p>
     <canvas class="tape" id="tape" aria-hidden="true"></canvas>
